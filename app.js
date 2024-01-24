@@ -4,11 +4,16 @@ const booksRouter = require("./api/routes");
 
 // require('dotenv').config();
 const connectDB = require("./database");
+
 const app = express(); //my backend
 const morgan = require("morgan");
 
+const path = require("path");
+app.use("/media", express.static(path.join(__dirname, "public")));
+//middleware
 app.use(express.json());
 app.use(morgan("dev"));
+
 app.use("/api/books", booksRouter);
 
 //not found handler
