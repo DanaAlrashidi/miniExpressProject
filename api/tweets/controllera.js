@@ -5,7 +5,7 @@ const getAllTweets = async (req, res, next) => {
   try {
     const tweets = await Tweet.find();
 
-    return res.status(201).json(tweet);
+    return res.status(201).json(tweets);
   } catch (error) {
     next(error);
   }
